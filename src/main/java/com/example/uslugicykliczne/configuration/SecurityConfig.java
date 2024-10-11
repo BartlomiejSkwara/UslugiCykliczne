@@ -73,45 +73,46 @@ public class SecurityConfig {
 
         httpSecurity.authorizeHttpRequests(auth ->
                 auth
-                    .requestMatchers("/","/index.html", "/js/*","/css/*","/favicon.ico").permitAll()
-                    .requestMatchers("/api/authentication/login").permitAll()
-                    .requestMatchers("/api/authentication/logout").hasAnyRole("user","editor","admin")
-                    .requestMatchers(
-                            "/api/cyclicalservice/getAllAwaiting?days=${days}",
-                            "/api/cyclicalservice/getAllAwaiting",
-                            "/api/cyclicalservice/getAll",
-                            "/api/cyclicalservice/getAllExpired",
-
-                            "/api/cyclicalservice/getAllByUser",
-                            "/api/cyclicalservice/getAllByBusiness",
-                            "/api/cyclicalservice/renewalRequest/*",
-                            "/api/cyclicalservice/cancelRequest/*",
-                            "/api/cyclicalservice/statusChangeHistory/*",
-                            "/api/cyclicalservice/certificateHistory/*",
-                            "/api/authentication/requestToken"
-                            ).hasAnyRole("user","editor","admin")
-
-                    .requestMatchers(
-                            "/api/cyclicalservice/getAllCancelRequests",
-                            "/api/cyclicalservice/renew/**",
-                            "/api/cyclicalservice/insertBody",
-                            "/api/cyclicalservice/statusChange/*",
-                            "/api/serviceUser/getAll",
-                            "/api/serviceUser/get/**",
-                            "/api/serviceUser/insertBody",
-                            "/api/business/update/*",
-                            "/api/serviceUser/update/*",
-                            "/api/business/getAll",
-                            "/api/business/get/**",
-                            "/api/business/insertBody",
-                            "/api/business/getAllByUser",
-                            "/api/accountData/getAll",
-                            "/api/cyclicalservice/ignore/**",
-//                            "/api/accountData/register",
-                            "/api/accountData/changeUserRole"
-                            ).hasAnyRole("editor","admin")
-
-                    .anyRequest().hasRole("admin")
+//                    .requestMatchers("/","/index.html", "/js/*","/css/*","/favicon.ico").permitAll()
+//                    .requestMatchers("/api/authentication/login").permitAll()
+//                    .requestMatchers("/api/authentication/logout").hasAnyRole("user","editor","admin")
+//                    .requestMatchers(
+//                            "/api/cyclicalservice/getAllAwaiting?days=${days}",
+//                            "/api/cyclicalservice/getAllAwaiting",
+//                            "/api/cyclicalservice/getAll",
+//                            "/api/cyclicalservice/getAllExpired",
+//
+//                            "/api/cyclicalservice/getAllByUser",
+//                            "/api/cyclicalservice/getAllByBusiness",
+//                            "/api/cyclicalservice/renewalRequest/*",
+//                            "/api/cyclicalservice/cancelRequest/*",
+//                            "/api/cyclicalservice/statusChangeHistory/*",
+//                            "/api/cyclicalservice/certificateHistory/*",
+//                            "/api/authentication/requestToken"
+//                            ).hasAnyRole("user","editor","admin")
+//
+//                    .requestMatchers(
+//                            "/api/cyclicalservice/getAllCancelRequests",
+//                            "/api/cyclicalservice/renew/**",
+//                            "/api/cyclicalservice/insertBody",
+//                            "/api/cyclicalservice/statusChange/*",
+//                            "/api/serviceUser/getAll",
+//                            "/api/serviceUser/get/**",
+//                            "/api/serviceUser/insertBody",
+//                            "/api/business/update/*",
+//                            "/api/serviceUser/update/*",
+//                            "/api/business/getAll",
+//                            "/api/business/get/**",
+//                            "/api/business/insertBody",
+//                            "/api/business/getAllByUser",
+//                            "/api/accountData/getAll",
+//                            "/api/cyclicalservice/ignore/**",
+////                            "/api/accountData/register",
+//                            "/api/accountData/changeUserRole"
+//                            ).hasAnyRole("editor","admin")
+//
+//                    .anyRequest().hasRole("admin")
+                    .anyRequest().permitAll()
                 );
         //httpSecurity.authenticationProvider(authenticationProvider());
 
