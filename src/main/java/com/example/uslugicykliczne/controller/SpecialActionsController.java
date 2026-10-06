@@ -6,6 +6,9 @@ import com.example.uslugicykliczne.services.StartupService;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.bean.HeaderColumnNameMappingStrategy;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import jakarta.persistence.EntityManager;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
@@ -24,6 +27,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/specialActions")
 @AllArgsConstructor
+
 public class SpecialActionsController {
 
     private EntityManager entityManager;
@@ -31,6 +35,8 @@ public class SpecialActionsController {
     private final CsvService csvService;
 
 
+    @Operation(summary = "podsumowanie", description = "opis"
+    )
     @PostMapping(value = "/importCsv", consumes = {"multipart/form-data"})
     public ResponseEntity<String> importCsv(@RequestPart("file") MultipartFile file) {
         if (file.isEmpty()) {
